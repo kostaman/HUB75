@@ -1,8 +1,6 @@
 #include "stm32f4xx_hal.h"
 #include "../Drivers/HUB75/hub75.h"
 
-extern "C" TIM_HandleTypeDef htim9;
-
 extern "C"
 void display() {
 
@@ -22,11 +20,7 @@ void display() {
     HUB75::Pixel16bit blue(0x00, 0x00, 0xff);
 
     auto show = [&](HUB75::Pixel16bit pixel) {
-        for (size_t row = 0; row < 64; row++) {
-            for (size_t col = 0; col < 128; col++) {
-                frame.pixel(col, row) = pixel;
-            }
-        }
+        frame.fill(pixel);
         hub75.display(frame);
         HAL_Delay(500);
     };

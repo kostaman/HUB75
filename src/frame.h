@@ -16,11 +16,15 @@ namespace HUB75 {
     public:
 
         Frame() {
-            std::fill(pixels.begin(), pixels.end(), PixelType{});
+            fill(PixelType{});
         }
 
         PixelType &pixel(size_t col, size_t row) {
             return pixels[col + row * Columns];
+        }
+
+        void fill(PixelType pixel) {
+            std::fill(pixels.begin(), pixels.end(), pixel);
         }
 
         void populateLedFrame(LedFrame<3 * Columns, Rows> &ledFrame, size_t framePosition) {

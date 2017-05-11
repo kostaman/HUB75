@@ -15,13 +15,15 @@ Example usage of this library can be found in file [example/Src/example.cpp](htt
 
 ## Pixel Interface
 
+- `constexpr PixelType();`
+- `constexpr PixelType(uint8_t r, uint8_t g, uint8_t b);`
 - `static const size_t FrameCount;`
-- `void r(uint8_t);`
-- `void g(uint8_t);`
-- `void b(uint8_t);`
-- `uint8_t r();`
-- `uint8_t g();`
-- `uint8_t b();`
+- `constexpr void r(uint8_t);`
+- `constexpr void g(uint8_t);`
+- `constexpr void b(uint8_t);`
+- `constexpr uint8_t r();`
+- `constexpr uint8_t g();`
+- `constexpr uint8_t b();`
 
 ## Prerequisites
 - `arm-none-eabi-gcc`

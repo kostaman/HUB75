@@ -3,13 +3,14 @@
 
 #include <cstddef>
 #include <array>
+#include <type_traits>
 #include "pixel.h"
 #include "led_frame.h"
 
 namespace HUB75 {
 
     template<size_t Columns, size_t Rows, class PixelType = Pixel16bit>
-    class Frame {
+    class Frame : std::enable_if<checkPixelType<PixelType>()> {
 
         std::array<PixelType, Columns * Rows> pixels;
 

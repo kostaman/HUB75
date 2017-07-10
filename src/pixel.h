@@ -5,8 +5,8 @@
 
 namespace HUB75 {
 
-    template <typename T>
-    concept bool Pixel(){
+    template<typename T>
+    concept bool Pixel() {
         return requires(T p, uint8_t v) {
             { T::FrameCount } -> uint8_t;
 
@@ -21,108 +21,81 @@ namespace HUB75 {
     }
 
     /**
-     * 5 bit color depth per channel
-     * 0b0BBBBBGGGGGRRRRR
+     * 565 RGB pixel
      */
     class Pixel16bit {
-
-        uint16_t value;
-
-        static const uint16_t mask = 0x1F;
+        uint8_t _r : 5;
+        uint8_t _g : 6;
+        uint8_t _b : 5;
 
     public:
+        static const uint8_t FrameCount = 6;
 
-        static const size_t FrameCount = 5;
-
-        constexpr Pixel16bit() : value(0) {
-        }
-
-        constexpr Pixel16bit(uint8_t red, uint8_t green, uint8_t blue) : value(0) {
-            r(red);
-            g(green);
-            b(blue);
-        }
+        constexpr Pixel16bit() : _r(0), _g(0), _b(0) {}
+        constexpr Pixel16bit(uint8_t r, uint8_t g, uint8_t b) : _r(r), _g(g), _b(b) {}
 
         constexpr uint8_t r() {
-            return value & mask;
+            return _r;
         }
 
         constexpr uint8_t g() {
-            return (value >> 5) & mask;
+            return _g;
         }
 
         constexpr uint8_t b() {
-            return (value >> 10) & mask;
+            return _b;
         }
 
         constexpr void r(uint8_t v) {
-            value &= ~mask;
-            value |= v & mask;
+            _r = v;
         }
 
         constexpr void g(uint8_t v) {
-            value &= ~(mask << 5);
-            value |= (v & mask) << 5;
+            _g = v;
         }
 
         constexpr void b(uint8_t v) {
-            value &= ~(mask << 10);
-            value |= (v & mask) << 10;
+            _b = v;
         }
-
     };
 
-
     /**
-     * 2 bit color depth per channel
-     * 0b00BBGGRR
+     * 233 RGB pixel
      */
     class Pixel8bit {
-
-        uint8_t value;
-
-        static const uint8_t mask = 0x03;
+        uint8_t _r : 2;
+        uint8_t _g : 3;
+        uint8_t _b : 3;
 
     public:
+        static const uint8_t FrameCount = 3;
 
-        static const size_t FrameCount = 2;
-
-        constexpr Pixel8bit() : value(0) {
-        }
-
-        constexpr Pixel8bit(uint8_t red, uint8_t green, uint8_t blue) : value(0) {
-            r(red);
-            g(green);
-            b(blue);
-        }
+        constexpr Pixel8bit() : _r(0), _g(0), _b(0) {}
+        constexpr Pixel8bit(uint8_t r, uint8_t g, uint8_t b) : _r(r), _g(g), _b(b) {}
 
         constexpr uint8_t r() {
-            return value & mask;
+            return _r;
         }
 
         constexpr uint8_t g() {
-            return (value >> 2) & mask;
+            return _g;
         }
 
         constexpr uint8_t b() {
-            return (value >> 4) & mask;
+            return _b;
         }
 
         constexpr void r(uint8_t v) {
-            value &= ~mask;
-            value |= v & mask;
+            _r = v;
         }
 
         constexpr void g(uint8_t v) {
-            value &= ~(mask << 2);
-            value |= (v & mask) << 2;
+            _g = v;
         }
 
         constexpr void b(uint8_t v) {
-            value &= ~(mask << 4);
-            value |= (v & mask) << 4;
+            _b = v;
         }
-
     };
 
 }

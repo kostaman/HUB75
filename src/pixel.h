@@ -24,38 +24,44 @@ namespace HUB75 {
      * 565 RGB pixel
      */
     class Pixel16bit {
-        uint8_t _r : 5;
-        uint8_t _g : 6;
-        uint8_t _b : 5;
+        uint16_t value;
 
     public:
         static const uint8_t FrameCount = 6;
 
-        constexpr Pixel16bit() : _r(0), _g(0), _b(0) {}
-        constexpr Pixel16bit(uint8_t r, uint8_t g, uint8_t b) : _r(r), _g(g), _b(b) {}
+        constexpr Pixel16bit() : value(0) {}
+
+        constexpr Pixel16bit(uint8_t _r, uint8_t _g, uint8_t _b) : value(0) {
+            r(_r);
+            g(_g);
+            b(_b);
+        }
 
         constexpr uint8_t r() {
-            return _r;
+            return value & 0x1F;
         }
 
         constexpr uint8_t g() {
-            return _g;
+            return (value >> 5) & 0x3F;
         }
 
         constexpr uint8_t b() {
-            return _b;
+            return (value >> 11) & 0x1F;
         }
 
         constexpr void r(uint8_t v) {
-            _r = v;
+            value &= ~0x1F;
+            value |= (v & 0x1F);
         }
 
         constexpr void g(uint8_t v) {
-            _g = v;
+            value &= ~(0x3F << 5);
+            value |= (v & 0x3F) << 5;
         }
 
         constexpr void b(uint8_t v) {
-            _b = v;
+            value &= ~(0x1F << 11);
+            value |= (v & 0x1F) << 11;
         }
     };
 
@@ -71,6 +77,7 @@ namespace HUB75 {
         static const uint8_t FrameCount = 3;
 
         constexpr Pixel8bit() : _r(0), _g(0), _b(0) {}
+
         constexpr Pixel8bit(uint8_t r, uint8_t g, uint8_t b) : _r(r), _g(g), _b(b) {}
 
         constexpr uint8_t r() {

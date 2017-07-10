@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.5)
 project(HUB75)
 
 enable_language(ASM)
@@ -14,7 +14,7 @@ set(CUSTOM_LINKER_FLAGS "-mcpu=cortex-m4 -mthumb -Og -ffunction-sections -fdata-
 
 set(CMAKE_ASM_FLAGS_RELEASE "")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${CUSTOM_COMPILER_FLAGS}")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CUSTOM_COMPILER_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CUSTOM_COMPILER_FLAGS} -fconcepts")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${CUSTOM_LINKER_FLAGS}")
 
 file(GLOB_RECURSE SOURCES Src/*.c Src/*.cpp startup/*.s Drivers/**/*.c)

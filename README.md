@@ -8,24 +8,13 @@ Example usage of this library can be found in file [example/Src/example.cpp](htt
 
 ## Terms & Definitions
 
-- `Pixel` := an arbitrary color depth and format pixel value that implements the Pixel interface
+- `Pixel` := an arbitrary color depth and format pixel value that models the Pixel concept
 - `PinRow` := a row of 6 consequent GPIO pins sharing the same GPIO port
 - `LedFrame` := a frame of 1-bit color pixel data to be pushed to the display directly
 - `Frame` := a frame of pixel data using any `Pixel` type to be displayed on the display
 
-## Pixel Interface
-
-- `constexpr PixelType();`
-- `constexpr PixelType(uint8_t r, uint8_t g, uint8_t b);`
-- `static const size_t FrameCount;`
-- `constexpr void r(uint8_t);`
-- `constexpr void g(uint8_t);`
-- `constexpr void b(uint8_t);`
-- `constexpr uint8_t r();`
-- `constexpr uint8_t g();`
-- `constexpr uint8_t b();`
-
 ## Prerequisites
+\*Requires a compiler that supports C++14 and Concepts TS (`-fconcepts` flag)
 - `arm-none-eabi-gcc`
 - `cmake`
 - `make`

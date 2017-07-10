@@ -5,25 +5,19 @@
 
 namespace HUB75 {
 
-    template<class PixelType>
-    constexpr bool checkPixelType() {
-        PixelType p;
-        PixelType p2(0, 0, 0);
-        static_assert(std::is_same<decltype(p.r(0)), void>::value,
-                      "PixelType has to have constexpr void r(uint8_t) member function");
-        static_assert(std::is_same<decltype(p.g(0)), void>::value,
-                      "PixelType has to have constexpr void g(uint8_t) member function");
-        static_assert(std::is_same<decltype(p.b(0)), void>::value,
-                      "PixelType has to have constexpr void b(uint8_t) member function");
-        static_assert(std::is_same<decltype(p.r()), uint8_t>::value,
-                      "PixelType has to have constexpr uint8_t r() member function");
-        static_assert(std::is_same<decltype(p.g()), uint8_t>::value,
-                      "PixelType has to have constexpr uint8_t g() member function");
-        static_assert(std::is_same<decltype(p.b()), uint8_t>::value,
-                      "PixelType has to have constexpr uint8_t b() member function");
-        static_assert(std::is_same<decltype(PixelType::FrameCount), const size_t>::value,
-                      "PixelType has to have static const size_t FrameCount member");
-        return true;
+    template <typename T>
+    concept bool Pixel(){
+        return requires(T p, uint8_t v) {
+            { T::FrameCount } -> uint8_t;
+
+            { p.r() } -> uint8_t;
+            { p.g() } -> uint8_t;
+            { p.b() } -> uint8_t;
+
+            { p.r(v) } -> void;
+            { p.g(v) } -> void;
+            { p.b(v) } -> void;
+        };
     }
 
     /**

@@ -9,8 +9,8 @@
 
 namespace HUB75 {
 
-    template<size_t Columns, size_t Rows, class PixelType = Pixel16bit>
-    class Frame : std::enable_if<checkPixelType<PixelType>()> {
+    template<size_t Columns, size_t Rows, Pixel PixelType = Pixel16bit>
+    class Frame {
 
         std::array<PixelType, Columns * Rows> pixels;
 

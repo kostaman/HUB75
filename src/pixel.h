@@ -21,6 +21,46 @@ namespace HUB75 {
     }
 
     /**
+     * 888 RGB pixel
+     */
+    class Pixel24bit {
+        uint8_t _r;
+        uint8_t _g;
+        uint8_t _b;
+
+    public:
+        static const uint8_t FrameCount = 8;
+
+        constexpr Pixel24bit() : _r(0), _g(0), _b(0) {}
+
+        constexpr Pixel24bit(uint8_t r, uint8_t g, uint8_t b) : _r(r), _g(g), _b(b) {}
+
+        constexpr uint8_t r() {
+            return _r;
+        }
+
+        constexpr uint8_t g() {
+            return _g;
+        }
+
+        constexpr uint8_t b() {
+            return _b;
+        }
+
+        constexpr void r(uint8_t v) {
+            _r = v;
+        }
+
+        constexpr void g(uint8_t v) {
+            _g = v;
+        }
+
+        constexpr void b(uint8_t v) {
+            _b = v;
+        }
+    };
+
+    /**
      * 565 RGB pixel
      */
     class Pixel16bit {

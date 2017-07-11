@@ -6,6 +6,7 @@
 #include "pin_row.h"
 #include "frame.h"
 #include "led_frame.h"
+#include "pixel.h"
 
 namespace HUB75 {
 
@@ -26,7 +27,7 @@ namespace HUB75 {
         HUB75() {
         }
 
-        template<class PixelType>
+        template<Pixel PixelType>
         void display(Frame<Columns, Rows, PixelType> &frame) {
             LedFrame<3 * Columns, Rows> ledFrame;
             for (size_t framePosition = 0; framePosition < PixelType::FrameCount; framePosition++) {

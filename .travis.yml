@@ -10,5 +10,7 @@ matrix:
             - gcc-arm-none-eabi
             - cmake
 script:
+  - export CC=arm-none-eabi-gcc
+  - export CXX=arm-none-eabi-g++
   - cmake .
   - make

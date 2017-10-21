@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
+
+SET(CMAKE_SYSTEM_NAME Generic)
 project(HUB75)
 
 set(STM32CUBEF4_URL "http://www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32cubef4.zip")

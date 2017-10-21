@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Install Dependencies
-          command: apt-get update && apt-get install -y cmake make arm-none-eabi-gcc
+          command: apt-get update && apt-get install -y cmake make gcc-arm-none-eabi
       - run:
           name: Compile
           command: cmake . && make

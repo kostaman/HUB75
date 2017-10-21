@@ -1,0 +1,13 @@
+language: cpp
+matrix:
+  include:
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - debian-sid
+          packages:
+            - gcc-arm-none-eabi
+script:
+  - cmake .
+  - make

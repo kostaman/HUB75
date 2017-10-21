@@ -33,9 +33,7 @@ set(CMAKE_C_COMPILER arm-none-eabi-gcc)
 set(CMAKE_CXX_COMPILER arm-none-eabi-g++)
 set(CMAKE_ASM_COMPILER arm-none-eabi-as)
 
-set(CMAKE_CXX_STANDARD 14)
-
-file(GLOB RECURSE LINKER_SCRIPT "STM32F407VG_FLASH.ld")
+set(CMAKE_CXX_STANDARD 17)
 
 set(CUSTOM_COMPILER_FLAGS "-mcpu=cortex-m4 -mthumb -DSTM32F407xx -Wall -flto")
 set(CUSTOM_LINKER_FLAGS "-mcpu=cortex-m4 -mthumb -Og -flto -ffunction-sections -fdata-sections -fno-move-loop-invariants -Xlinker --gc-sections --specs=nosys.specs -T${STM32CUBEF4_FOLDER}/Projects/STM32F4-Discovery/Templates/TrueSTUDIO/STM32F4-Discovery/STM32F407VG_FLASH.ld")
@@ -48,6 +46,7 @@ file(GLOB_RECURSE SOURCES
     Src/*.c
     Src/*.cpp
     ${STM32CUBEF4_FOLDER}/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f407xx.s
+    ${STM32CUBEF4_FOLDER}/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
     ${STM32CUBEF4_FOLDER}/Drivers/STM32F4xx_HAL_Driver/*.c
 )
 

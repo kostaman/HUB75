@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/petoknm/HUB75.svg?branch=master)](
+https://travis-ci.org/petoknm/HUB75)
 [![CircleCI](https://circleci.com/gh/petoknm/HUB75.svg?style=svg)](
 https://circleci.com/gh/petoknm/HUB75)
 

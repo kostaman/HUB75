@@ -5,9 +5,9 @@ jobs:
       - image: fedora:26
     steps:
       - checkout
-      - install_dependencies:
+      - run:
           name: Install Dependencies
           command: dnf install -y cmake make arm-none-eabi-gcc-cs arm-none-eabi-gcc-cs-c++ arm-none-eabi-newlib unzip findutils which
-      - compile:
+      - run:
           name: Compile
           command: cmake -DCMAKE_TOOLCHAIN_FILE=arm-none-eabi-gcc.cmake . && make

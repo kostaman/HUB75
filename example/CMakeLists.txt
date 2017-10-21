@@ -1,10 +1,4 @@
 cmake_minimum_required(VERSION 3.8)
-
-SET(CMAKE_SYSTEM_NAME Generic)
-set(CMAKE_C_COMPILER_WORKS 1)
-set(CMAKE_CXX_COMPILER_WORKS 1)
-set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
-set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "")
 project(HUB75)
 
 set(STM32CUBEF4_URL "http://www.st.com/st-web-ui/static/active/en/st_prod_software_internet/resource/technical/software/firmware/stm32cubef4.zip")

@@ -10,4 +10,4 @@ jobs:
           command: apt-get update && apt-get install -y cmake make gcc-arm-none-eabi
       - run:
           name: Compile
-          command: cmake . && make
+          command: export CC=arm-none-eabi-gcc && export CXX=arm-none-eabi-g++ && cmake . && make

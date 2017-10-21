@@ -9,6 +9,7 @@ matrix:
           packages:
             - gcc-arm-none-eabi
             - libnewlib-arm-none-eabi
+            - libstdc++-arm-none-eabi-newlib
             - cmake
 script:
   - cmake -DCMAKE_TOOLCHAIN_FILE=arm-none-eabi-gcc.cmake .

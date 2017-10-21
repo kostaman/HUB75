@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/petoknm/HUB75.svg?style=svg)](
+https://circleci.com/gh/petoknm/HUB75)
+
 # HUB75
 HUB75 LED Matrix driver for STM32 using HAL.  
 Primary development and testing currently performed on two HUB75e 64x64 RGB LED

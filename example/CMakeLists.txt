@@ -29,11 +29,7 @@ endif()
 
 enable_language(ASM)
 
-set(CMAKE_C_COMPILER arm-none-eabi-gcc)
-set(CMAKE_CXX_COMPILER arm-none-eabi-g++)
-set(CMAKE_ASM_COMPILER arm-none-eabi-as)
-
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 set(CUSTOM_COMPILER_FLAGS "-mcpu=cortex-m4 -mthumb -DSTM32F407xx -Wall -flto")
 set(CUSTOM_LINKER_FLAGS "-mcpu=cortex-m4 -mthumb -Og -flto -ffunction-sections -fdata-sections -fno-move-loop-invariants -Xlinker --gc-sections -T${STM32CUBEF4_FOLDER}/Projects/STM32F4-Discovery/Templates/TrueSTUDIO/STM32F4-Discovery/STM32F407VG_FLASH.ld")

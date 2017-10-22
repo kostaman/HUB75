@@ -33,7 +33,6 @@ int main(void) {
 }
 
 void SystemClock_Config(void) {
-
     RCC_OscInitTypeDef RCC_OscInitStruct;
     RCC_ClkInitTypeDef RCC_ClkInitStruct;
     RCC_PeriphCLKInitTypeDef PeriphClkInitStruct;
@@ -80,7 +79,6 @@ void SystemClock_Config(void) {
 }
 
 static void MX_RTC_Init(void) {
-
     hrtc.Instance = RTC;
     hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
     hrtc.Init.AsynchPrediv = 127;
@@ -91,11 +89,9 @@ static void MX_RTC_Init(void) {
     if (HAL_RTC_Init(&hrtc) != HAL_OK) {
         Error_Handler();
     }
-
 }
 
 static void MX_TIM9_Init(void) {
-
     TIM_ClockConfigTypeDef sClockSourceConfig;
     TIM_OC_InitTypeDef sConfigOC;
 
@@ -126,11 +122,9 @@ static void MX_TIM9_Init(void) {
     }
 
     HAL_TIM_MspPostInit(&htim9);
-
 }
 
 static void MX_GPIO_Init(void) {
-
     GPIO_InitTypeDef GPIO_InitStruct;
 
     __HAL_RCC_GPIOE_CLK_ENABLE();
@@ -157,7 +151,6 @@ static void MX_GPIO_Init(void) {
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
 }
 
 void Error_Handler(void) {

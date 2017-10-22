@@ -31,6 +31,12 @@ the display
 During build script generation, ST's STM32CubeF4 library will be downloaded and
 extracted so please be patient because it's a big download.
 ```shell
-cmake .
+# In-source build
+cmake -DCMAKE_TOOLCHAIN_FILE=arm-none-eabi-gcc.cmake .
+make
+
+# Out-of-source build
+mkdir build && cd build
+cmake -DCMAKE_TOOLCHAIN_FILE=arm-none-eabi-gcc.cmake ..
 make
 ```

@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/petoknm/HUB75.svg?branch=master)](
-https://travis-ci.org/petoknm/HUB75)
 [![CircleCI](https://circleci.com/gh/petoknm/HUB75.svg?style=svg)](
 https://circleci.com/gh/petoknm/HUB75)
 
@@ -15,7 +13,7 @@ https://github.com/petoknm/HUB75/blob/master/example/Src/example.cpp).
 ## Terms & Definitions
 - `Pixel` := an arbitrary color depth and format pixel value that models the
 Pixel concept
-- `PinRow` := a row of 6 consequent GPIO pins sharing the same GPIO port
+- `PinRow` := a row of `n` consequent GPIO pins sharing the same GPIO port
 - `LedFrame` := a frame of 1-bit color pixel data to be pushed to the display
 directly
 - `Frame` := a frame of pixel data using any `Pixel` type to be displayed on

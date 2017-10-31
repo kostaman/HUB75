@@ -32,8 +32,8 @@ enable_language(ASM)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(CUSTOM_COMPILER_FLAGS "-mcpu=cortex-m4 -mthumb -DSTM32F407xx -Wall -flto")
-set(CUSTOM_LINKER_FLAGS "-mcpu=cortex-m4 -mthumb -Og -flto -ffunction-sections -fdata-sections -fno-move-loop-invariants -Xlinker --gc-sections -T${CUBEF4_DIR}/Projects/STM32F4-Discovery/Templates/SW4STM32/STM32F4-Discovery/STM32F407VGTx_FLASH.ld")
+set(CUSTOM_COMPILER_FLAGS "-mcpu=cortex-m4 -mthumb -O3 -flto -DSTM32F407xx -Wall")
+set(CUSTOM_LINKER_FLAGS "-mcpu=cortex-m4 -mthumb -O3 -flto -ffunction-sections -fdata-sections -fno-move-loop-invariants -Xlinker --gc-sections -T${CUBEF4_DIR}/Projects/STM32F4-Discovery/Templates/SW4STM32/STM32F4-Discovery/STM32F407VGTx_FLASH.ld")
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${CUSTOM_COMPILER_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CUSTOM_COMPILER_FLAGS} -fconcepts")
@@ -54,4 +54,5 @@ include_directories(
     ${CUBEF4_DIR}/Drivers/STM32F4xx_HAL_Driver/Inc
 )
 
-add_executable(hub75 ${SOURCES})
+add_executable(${PROJECT_NAME}.elf ${SOURCES})
+add_custom_command(TARGET ${PROJECT_NAME}.elf POST_BUILD COMMAND arm-none-eabi-size "${PROJECT_NAME}.elf")

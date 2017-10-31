@@ -10,9 +10,9 @@ void display() {
             128, 64,
             HUB75::PinRow<GPIOC_BASE, 0, 6>,
             HUB75::PinRow<GPIOC_BASE, 6, 5>,
-            HUB75::Pin<GPIOC_BASE, GPIO_PIN_11>,
-            HUB75::Pin<GPIOC_BASE, GPIO_PIN_12>,
-            HUB75::Pin<GPIOC_BASE, GPIO_PIN_13>
+            HUB75::Pin<GPIOC_BASE, 11>,
+            HUB75::Pin<GPIOC_BASE, 12>,
+            HUB75::Pin<GPIOC_BASE, 13>
     > hub75;
 
     HUB75::Frame<128, 64, PixelType> frame;
